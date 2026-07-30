@@ -49,7 +49,21 @@ def load_packet(path: str | None, raw: str | None) -> dict:
         raise ValueError("facts must be a non-empty list")
     data.setdefault("misconceptions", [])
     data.setdefault("tags", [])
+    data.setdefault("memory_strength", 0)
+    data.setdefault("attempts", 0)
     data.setdefault("next_review", (dt.date.today() + dt.timedelta(days=1)).isoformat())
+    if (
+        not isinstance(data["memory_strength"], int)
+        or isinstance(data["memory_strength"], bool)
+        or data["memory_strength"] not in range(0, 6)
+    ):
+        raise ValueError("memory_strength must be an integer from 0 to 5")
+    if (
+        not isinstance(data["attempts"], int)
+        or isinstance(data["attempts"], bool)
+        or data["attempts"] < 0
+    ):
+        raise ValueError("attempts must be a non-negative integer")
     data["recorded_at"] = dt.datetime.now().astimezone().isoformat(timespec="seconds")
     return data
 
@@ -89,6 +103,7 @@ def main() -> int:
         f"**핵심**\n{facts}\n\n"
         f"**회상 질문**: {packet['recall_prompt']}\n\n"
         f"**회상 결과**: {packet['recall_result']}\n\n"
+        f"**기억 강도**: {packet['memory_strength']}/5 ({packet['attempts']}회 시도)\n\n"
         f"**혼동**\n{misconceptions}\n\n"
         f"**다음 복습**: {packet['next_review']}\n"
     )
@@ -104,6 +119,8 @@ def main() -> int:
         "title": title,
         "due": packet["next_review"],
         "result": packet["recall_result"],
+        "memory_strength": packet["memory_strength"],
+        "attempts": packet["attempts"],
         "tags": packet["tags"],
     }, ensure_ascii=False))
 
