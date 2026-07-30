@@ -14,15 +14,21 @@
 - 전체 대화 대신 최소 기억 패킷만 Git에 기록
 - 설정된 원격 저장소로 선택적 자동 push
 
+자세한 호환성, 설치법, 설정법은 [스킬 README](skills/study-memory-loop/README.md)를 참고하세요.
+
 ## 설치
 
-Codex에 다음처럼 요청하세요.
+Codex, Claude Code, Antigravity CLI 등 지원되는 에이전트에 한 번에 설치하려면:
+
+```bash
+npx skills add AIjunja/Are-You-Human --skill study-memory-loop
+```
+
+또는 사용하는 에이전트에게 다음처럼 요청하세요.
 
 ```text
 AIjunja/Are-You-Human 저장소의 skills/study-memory-loop 스킬을 설치해줘.
 ```
-
-또는 저장소를 clone한 뒤 `skills/study-memory-loop` 폴더를 Codex 스킬 디렉터리로 복사할 수 있습니다.
 
 ## 사용 예시
 

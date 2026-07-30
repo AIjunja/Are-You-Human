@@ -89,7 +89,7 @@ description: 대화만으로 어떤 주제든 빠르게 배우고 오래 기억�
 
 학습 내용은 별도의 `study-ledger/` 폴더에만 저장한다. 자동 기록은 `scripts/study_sync.py`를 사용한다.
 
-1. 저장소 선택 순서는 `--repo`, `CODEX_STUDY_REPO`, 현재 Git 루트 순이다.
+1. 저장소 선택 순서는 `--repo`, `STUDY_MEMORY_REPO`, 레거시 `CODEX_STUDY_REPO`, 현재 Git 루트 순이다.
 2. 스크립트는 `study-ledger/topics/<slug>.md`, `study-ledger/review-queue.jsonl`, `study-ledger/packets/`만 변경한다.
 3. 변경 후 `study: <topic> - <short title>` 형식으로 로컬 커밋한다. 다른 파일은 stage하지 않는다.
 4. `study-ledger/config.json`에 `auto_push: true`가 있고 원격이 존재할 때만 현재 브랜치로 push한다. force push는 절대 하지 않는다.
