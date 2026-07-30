@@ -1,0 +1,4 @@
+interface:
+  display_name: "Study Memory Loop"
+  short_description: "Learn faster with dialogue, recall, and spaced review"
+  default_prompt: "Use $study-memory-loop for short lessons, active recall, spaced review, and Git-backed study notes."
