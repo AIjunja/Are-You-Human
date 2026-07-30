@@ -24,7 +24,12 @@ def slugify(value: str) -> str:
 
 
 def repo_root(candidate: str | None) -> Path:
-    path = Path(candidate or os.environ.get("CODEX_STUDY_REPO") or Path.cwd()).expanduser().resolve()
+    path = Path(
+        candidate
+        or os.environ.get("STUDY_MEMORY_REPO")
+        or os.environ.get("CODEX_STUDY_REPO")
+        or Path.cwd()
+    ).expanduser().resolve()
     result = run_git(path, "rev-parse", "--show-toplevel")
     return Path(result.stdout.strip()).resolve()
 
