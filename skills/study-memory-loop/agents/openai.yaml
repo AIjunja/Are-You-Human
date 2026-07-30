@@ -1,4 +1,4 @@
 interface:
   display_name: "Study Memory Navigator"
-  short_description: "Turn vague curiosity into questions and understanding"
-  default_prompt: "Use $study-memory-loop to find what I do not know, build a question ladder and minimal knowledge map, then reinforce understanding with active recall."
+  short_description: "Turn curiosity into questions and verified recall"
+  default_prompt: "Use $study-memory-loop to find what I do not know, teach the minimum map, and keep testing me until I can recall and apply it without hints."
